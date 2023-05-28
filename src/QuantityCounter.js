@@ -15,7 +15,6 @@ let QuantityCounter = () => {
 
   return (
     <div>
-      <h2>Quantity Counter</h2>
       <p>Quantity: {quantity}</p>
       <button onClick={handleIncrement}>+</button>
       <button onClick={handleDecrement}>-</button>
