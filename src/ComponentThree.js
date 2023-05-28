@@ -1,16 +1,15 @@
-import React from 'react';
-import MyContext from './MyContext';
+import React, { useContext } from 'react';
+import ValueContext from './ValueContext';
 
-function ComponentThree() {
+function ComponentFive() {
+  const valueX = useContext(ValueContext);
+
   return (
     <div>
-      <h2>ComponentThree</h2>
-      {/* Access the context value */}
-      <MyContext.Consumer>
-        {(value) => <p>Value from ComponentOne: {value}</p>}
-      </MyContext.Consumer>
+      <h2>ComponentFive</h2>
+      <p>Value from ComponentOne: {valueX}</p>
     </div>
   );
 }
 
-export default ComponentThree;
+export default ComponentFive;
