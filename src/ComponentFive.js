@@ -1,15 +1,20 @@
-import React, { useContext } from 'react';
-import ValueContext from './ValueContext';
+import React, { Component } from 'react';
+import XContext from './XContext';
 
-function ComponentFive() {
-  const valueX = useContext(ValueContext);
-
-  return (
-    <div>
-      <h2>ComponentFive</h2>
-      <p>Value from ComponentOne: {valueX}</p>
-    </div>
-  );
+class ComponentFive extends Component {
+  render() {
+    return (
+      <XContext.Consumer>
+        {(sharedProps) => (
+          <div>
+            <h2>Component Five</h2>
+            <p>Prop One: {sharedProps.propOne}</p>
+            <p>Prop Two: {sharedProps.propTwo}</p>
+          </div>
+        )}
+      </XContext.Consumer>
+    );
+  }
 }
 
 export default ComponentFive;

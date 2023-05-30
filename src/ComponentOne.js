@@ -1,20 +1,20 @@
-import React, { useContext } from 'react';
-import ValueContext from './ValueContext';
-import ComponentThree from './ComponentThree';
-import ComponentFive from './ComponentFive';
+import React, { Component } from 'react';
+import XContext from './XContext';
 
-function ComponentOne() {
-  const valueX = useContext(ValueContext);
+class ComponentOne extends Component {
+  static contextType = XContext;
 
-  return (
-    <div>
-      <h2>ComponentOne</h2>
-      <ValueContext.Provider value={valueX}>
-        <ComponentThree />
-        <ComponentFive />
-      </ValueContext.Provider>
-    </div>
-  );
+  render() {
+    const { propOne, propTwo } = this.context;
+
+    return (
+      <div>
+        <h2>Component One</h2>
+        <p>Prop One: {propOne}</p>
+        <p>Prop Two: {propTwo}</p>
+      </div>
+    );
+  }
 }
 
 export default ComponentOne;
